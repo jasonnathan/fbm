@@ -1,0 +1,31 @@
+
+<template name="_pagesPage">
+    <div style="position:relative;" class="pagination-items">
+        {{#if ready}}
+        {{else}}
+        <div style="position:absolute; width:100%; text-align:center;">
+            <div style="border: 1px solid #eee; border-radius:5px; padding:10px; margin:15px; display:inline-block; background-color:white;"><img src="loading.gif"/></div>
+        </div>{{/if}}
+        <ul class="messagesBody">
+            {{#each items}}
+                {{> box}}
+            {{/each}}
+        </ul>
+    </div>
+</template>
+<template name="_pagesNav">{{#if show}}
+    <div class="row" style="margin-bottom:4em;">
+        <div class="columns large-12">
+            <div style="text-align:center;margin:0 auto;width:90%;" data-pages="{{name}}" class="pagination-cont">
+                <ul class="pagination">{{#each paginationNeighbors}}
+                    <li class="{{active}} {{disabled}}"><a href="{{link}}">{{p}}</a></li>{{/each}}
+                </ul>
+            </div>{{/if}}
+        </div>
+    </div>
+</template>
+<template name="_pagesItemDefault">
+    <div style="margin:5px 40px; padding: 10px; border: 1px solid #999; border-radius: 15px;">{{#each properties}}
+        <div><i>{{name}}</i>: {{value}}</div>{{/each}}
+    </div>
+</template>

@@ -1,0 +1,27 @@
+<head>
+    <title>fbmessages</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="columns large-12">
+            {{> messages}}
+        </div>
+    </div>
+</body>
+
+<template name="messages">
+    {{{pagesNav}}} <!--Top navigation-->
+    <div style="min-height:500px">
+    {{{pages}}}
+    </div>
+    {{{pagesNav}}} <!--Bottom navigation-->
+</template>
+
+
+<template name="box">
+    <li class="bubble {{#if isJason}}blue{{else}}pink{{/if}}">
+        <h6 class="name">{{user}} <small>{{formattedDate}}</small></h6>
+        <p>{{message}}</p>
+    </li>
+</template>
